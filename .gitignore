@@ -1,0 +1,157 @@
+# Python缓存文件
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# 分发/打包
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+PYTHONPATH
+
+# PyInstaller
+*.manifest
+*.spec
+
+# 单元测试/覆盖率报告
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# 翻译
+*.mo
+*.pot
+
+# Django相关
+*.log
+local_settings.py
+db.sqlite3
+
+# Flask相关
+instance/
+.webassets-cache
+
+# Scrapy相关
+.scrapy
+
+# Sphinx文档
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# celery beat调度文件
+celerybeat-schedule
+
+# SageMath解析文件
+*.sage.py
+
+# 环境变量
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder项目设置
+.spyderproject
+.spyproject
+
+# Rope项目设置
+.ropeproject
+
+# mkdocs文档
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# IDE相关文件
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# 操作系统相关
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 项目特定文件
+# 人脸数据库（包含个人隐私）
+data/database_faces/
+data/data_dlib/
+
+# 模型文件和特征文件
+*.pkl
+*.csv
+features_all*.csv
+
+# 音频文件
+*.wav
+*.mp3
+*.mp4
+
+# 测试图片和视频
+test_img/
+images_test/
+
+# 本地依赖包
+mylib/
+
+# 临时文件
+query
+recording.wav
+test_recording_manual.wav
+
+# Vercel部署配置
+.vercel/
+
+# 编译的UI文件
+*_rc.py
+
+# 数据库文件
+*.sql
+
+# 大型二进制文件
+*.whl
+*.tar.gz
+
+# 环境模型文件
+environmental_model.pkl

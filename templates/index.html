@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>工业制造结果展示</title>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="2">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .result-container {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        pre {
+            white-space: pre-wrap;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>工业制造过程监控</h1>
+    <div class="result-container">
+        {% if error %}
+            <p class="error">错误: {{ error }}</p>
+        {% elif workpiece_name %}
+            <h2>{% if person_type == 1 %}工人{% else %}质检工{% endif %}报告</h2>
+            <div class="person-badge">
+                当前人员类型: {{ "工人" if person_type == 1 else "质检工" }}
+                当前人员ID: {{ id }}
+            </div>
+            <h3>工件信息</h3>
+            <table>
+                <tr><th>工件名称:</th><td>{{ workpiece_name }}</td></tr>
+                <tr><th>工件图号:</th><td>{{ workpiece_dn }}</td></tr>
+                <tr><th>工件尺寸:</th><td>{{ workpiece_size }}</td></tr>
+                {% if person_type == 1 %}
+                    <tr><th>开工时间:</th><td>{{ start_time }}</td></tr>
+                    <tr><th>加工类型:</th><td>{{ process_type }}</td></tr>
+                    <tr><th>自检结果:</th><td>{{ self_check }}</td></tr>
+                {% else %}
+                    <tr><th>检验结果:</th><td>{{ Inspection_passed }}</td></tr>
+                    <tr><th>检验详情:</th><td>{{ Inspection_details }}</td></tr>
+                {% endif %}
+            </table>
+        {% else %}
+            <p>等待语音识别结果输入...</p>
+        {% endif %}
+    </div>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            width: 120px;
+            color: #666;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</body>
+</html>

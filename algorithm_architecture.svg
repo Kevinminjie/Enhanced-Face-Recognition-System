@@ -1,0 +1,182 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2196F3;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF9800;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F44336;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9C27B0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#673AB7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#333">
+    增强型人脸识别算法架构图
+  </text>
+  
+  <!-- 输入层 -->
+  <rect x="50" y="80" width="120" height="60" rx="10" fill="url(#grad1)" stroke="#333" stroke-width="2"/>
+  <text x="110" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
+    摄像头输入
+  </text>
+  
+  <!-- 预处理层 -->
+  <rect x="220" y="80" width="120" height="60" rx="10" fill="url(#grad1)" stroke="#333" stroke-width="2"/>
+  <text x="280" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" font-weight="bold">
+    图像预处理
+  </text>
+  <text x="280" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+    CLAHE增强
+  </text>
+  
+  <!-- 环境评估 -->
+  <rect x="390" y="80" width="120" height="60" rx="10" fill="url(#grad2)" stroke="#333" stroke-width="2"/>
+  <text x="450" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" font-weight="bold">
+    环境条件评估
+  </text>
+  <text x="450" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+    光照/质量分析
+  </text>
+  
+  <!-- 多尺度检测 -->
+  <rect x="560" y="80" width="120" height="60" rx="10" fill="url(#grad1)" stroke="#333" stroke-width="2"/>
+  <text x="620" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" font-weight="bold">
+    多尺度检测
+  </text>
+  <text x="620" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+    0.5x-1.25x
+  </text>
+  
+  <!-- 特征提取 -->
+  <rect x="220" y="200" width="120" height="60" rx="10" fill="url(#grad3)" stroke="#333" stroke-width="2"/>
+  <text x="280" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" font-weight="bold">
+    特征提取
+  </text>
+  <text x="280" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+    128D向量
+  </text>
+  
+  <!-- 增强匹配 -->
+  <rect x="390" y="200" width="120" height="60" rx="10" fill="url(#grad3)" stroke="#333" stroke-width="2"/>
+  <text x="450" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" font-weight="bold">
+    增强特征匹配
+  </text>
+  <text x="450" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+    融合+权重
+  </text>
+  
+  <!-- 自适应阈值 -->
+  <rect x="560" y="200" width="120" height="60" rx="10" fill="url(#grad2)" stroke="#333" stroke-width="2"/>
+  <text x="620" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" font-weight="bold">
+    自适应阈值
+  </text>
+  <text x="620" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+    动态调整
+  </text>
+  
+  <!-- 自监督学习 -->
+  <rect x="220" y="320" width="120" height="60" rx="10" fill="url(#grad2)" stroke="#333" stroke-width="2"/>
+  <text x="280" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" font-weight="bold">
+    自监督学习
+  </text>
+  <text x="280" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+    特征缓冲区
+  </text>
+  
+  <!-- 环境反馈 -->
+  <rect x="390" y="320" width="120" height="60" rx="10" fill="url(#grad2)" stroke="#333" stroke-width="2"/>
+  <text x="450" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" font-weight="bold">
+    环境反馈
+  </text>
+  <text x="450" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+    历史数据
+  </text>
+  
+  <!-- 输出结果 -->
+  <rect x="560" y="320" width="120" height="60" rx="10" fill="url(#grad1)" stroke="#333" stroke-width="2"/>
+  <text x="620" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" font-weight="bold">
+    识别结果
+  </text>
+  <text x="620" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+    姓名+置信度
+  </text>
+  
+  <!-- 数据库 -->
+  <ellipse cx="110" cy="350" rx="60" ry="30" fill="#E0E0E0" stroke="#333" stroke-width="2"/>
+  <text x="110" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333" font-weight="bold">
+    人脸数据库
+  </text>
+  <text x="110" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#333">
+    features_all.csv
+  </text>
+  
+  <!-- 环境模型 -->
+  <ellipse cx="110" cy="230" rx="60" ry="30" fill="#E0E0E0" stroke="#333" stroke-width="2"/>
+  <text x="110" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333" font-weight="bold">
+    环境模型
+  </text>
+  <text x="110" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#333">
+    .pkl文件
+  </text>
+  
+  <!-- 连接线 -->
+  <!-- 主流程线 -->
+  <line x1="170" y1="110" x2="220" y2="110" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="340" y1="110" x2="390" y2="110" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="510" y1="110" x2="560" y2="110" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <line x1="620" y1="140" x2="620" y2="200" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="560" y1="230" x2="510" y2="230" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="390" y1="230" x2="340" y2="230" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <line x1="280" y1="260" x2="280" y2="320" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="340" y1="350" x2="390" y2="350" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="510" y1="350" x2="560" y2="350" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- 反馈线 -->
+  <line x1="450" y1="320" x2="450" y2="140" stroke="#FF5722" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="280" y1="320" x2="280" y2="260" stroke="#FF5722" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- 数据库连接线 -->
+  <line x1="170" y1="350" x2="220" y2="350" stroke="#666" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="170" y1="230" x2="220" y2="230" stroke="#666" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="110" y1="260" x2="450" y2="140" stroke="#666" stroke-width="1" stroke-dasharray="3,3"/>
+  
+  <!-- 箭头标记 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- 图例 -->
+  <rect x="50" y="450" width="700" height="120" fill="#F5F5F5" stroke="#333" stroke-width="1" rx="5"/>
+  <text x="60" y="470" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333">
+    创新模块说明:
+  </text>
+  
+  <rect x="60" y="480" width="15" height="15" fill="url(#grad1)"/>
+  <text x="85" y="492" font-family="Arial, sans-serif" font-size="12" fill="#333">
+    基础处理模块: 图像输入、预处理、检测、输出
+  </text>
+  
+  <rect x="60" y="505" width="15" height="15" fill="url(#grad2)"/>
+  <text x="85" y="517" font-family="Arial, sans-serif" font-size="12" fill="#333">
+    智能反馈模块: 环境评估、自适应阈值、自监督学习、环境反馈
+  </text>
+  
+  <rect x="60" y="530" width="15" height="15" fill="url(#grad3)"/>
+  <text x="85" y="542" font-family="Arial, sans-serif" font-size="12" fill="#333">
+    核心算法模块: 特征提取、增强匹配
+  </text>
+  
+  <line x1="400" y1="555" x2="420" y2="555" stroke="#FF5722" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="430" y="560" font-family="Arial, sans-serif" font-size="12" fill="#333">
+    反馈回路: 实现持续学习和自适应优化
+  </text>
+</svg>

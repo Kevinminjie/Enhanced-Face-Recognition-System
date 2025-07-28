@@ -1,0 +1,25 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>images_test/face_rec.gif</file>
+    <file>images_test/ini-face.png</file>
+    <file>images_test/getimg.png</file>
+    <file>images_test/linecolor.png</file>
+    <file>images_test/iniface.png</file>
+    <file>images_test/delete.png</file>
+    <file>images_test/update.png</file>
+    <file>images_test/newfolder.png</file>
+    <file>images_test/loadf.png</file>
+    <file>images_test/linecolor.png</file>
+    <file>images_test/recface.png</file>
+    <file>images_test/loadface.png</file>
+    <file>images_test/manageface.png</file>
+    <file>images_test/filefold.png</file>
+    <file>images_test/runicon.png</file>
+    <file>images_test/video.png</file>
+    <file>images_test/Ordinateur.png</file>
+    <file>images_test/Score.png</file>
+    <file>images_test/tally.png</file>
+    <file>images_test/g1.png</file>
+    <file>images_test/result.png</file>
+  </qresource>
+</RCC>

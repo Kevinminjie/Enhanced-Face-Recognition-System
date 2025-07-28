@@ -1,0 +1,4 @@
+conda create -n face_rec python=3.8
+conda activate face_rec
+cd /d %~dp0
+pip install -r requirements.txt --no-index --find-links=./mylib/

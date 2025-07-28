@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>识别结果</title>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="2">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .result-container {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        pre {
+            white-space: pre-wrap;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        {% if result %}
+            <pre>{{ result }}</pre>
+        {% else %}
+            <p>等待语音识别结果...</p>
+        {% endif %}
+    </div>
+</body>
+</html>

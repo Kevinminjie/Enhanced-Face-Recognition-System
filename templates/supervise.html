@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>诸暨市鸿源电力机械有限公司生产管理驾驶舱</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #0a192f;
+            --primary-blue: #172a45;
+            --secondary-blue: #303f60;
+            --accent-blue: #050a09;
+            --accent-light: #ccd6f6;
+            --text-primary: #e6f1ff;
+            --text-secondary: #8892b0;
+            --card-bg: rgba(23, 42, 69, 0.8);-
+            --glow-effect: 0 0 10px rgba(100, 255, 218, 0.7);
+            --neon-blue: #00f0ff;
+            --neon-purple: #9900ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-dark);
+            color: var(--text-primary);
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* 调整容器高度以适应视口 */
+        .container {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--neon-blue);
+            box-shadow: 0 2px 10px rgba(0, 240, 255, 0.3);
+            height: 60px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+            filter: drop-shadow(0 0 15px var(--neon-blue));
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .dashboard-title {
+            font-size: 28px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-purple);
+            height: 40px;
+        }
+
+        /* 调整主内容区域高度 */
+        .main-content {
+            display: flex;
+            flex: 1;
+            height: calc(100% - 120px); /* 减去header和title的高度 */
+            overflow: hidden;
+            gap: 15px;
+        }
+
+        /* 生产网格布局 - 三行四列 */
+        .production-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 12px;
+            padding: 5px;
+            overflow: hidden;
+        }
+
+                /* 维护方案侧边栏 */
+        .maintenance-sidebar {
+            width: 300px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 8px;
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .maintenance-header {
+            text-align: center;
+            margin-bottom: 8px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--neon-blue);
+            flex-shrink: 0;
+        }
+
+        .maintenance-title {
+            font-size: 14px;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+            margin-bottom: 2px;
+        }
+
+        .maintenance-subtitle {
+            font-size: 10px;
+            color: var(--text-secondary);
+        }
+
+        .maintenance-list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .maintenance-item {
+            margin-bottom: 6px;
+            padding: 5px;
+            background-color: rgba(48, 63, 96, 0.3);
+            border-radius: 5px;
+            border-left: 2px solid var(--neon-blue);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+
+        .maintenance-stage {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3px;
+        }
+
+        .stage-name {
+            font-size: 9px;
+            font-weight: 500;
+            color: var(--accent-light);
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-right: 3px;
+        }
+
+        .stage-number {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8px;
+            font-weight: bold;
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
+        }
+
+        .maintenance-plan {
+            font-size: 8px;
+            color: var(--text-primary);
+            line-height: 1.2;
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .maintenance-plan span {
+            flex: 1;
+        }
+
+        .product-check {
+            color: #00ff9d;
+        }
+
+        .equipment-check {
+            color: #00b4ff;
+        }
+
+        /* 卡片样式 - 统一尺寸 */
+        .stage-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 10px;
+            border: 2px solid transparent;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 0; /* 修复flex布局溢出问题 */
+        }
+
+        .stage-card .stage-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+            flex-shrink: 0;
+        }
+
+        .stage-card .stage-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--accent-light);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 0 0 5px var(--neon-blue);
+        }
+
+        .stage-card .stage-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            border: 2px solid var(--neon-blue);
+            color: var(--neon-blue);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 240, 255, 0.3);
+            flex-shrink: 0;
+        }
+
+        .stage-card .stage-content {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px;
+            padding-right: 2px;
+        }
+
+        .stage-card .data-item {
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stage-card .data-label {
+            font-size: 8px;
+            color: var(--text-secondary);
+            margin-bottom: 1px;
+            text-shadow: 0 0 3px rgba(0, 240, 255, 0.3);
+        }
+
+        .stage-card .data-value {
+            font-size: 9px;
+            font-weight: 500;
+            color: var(--text-primary);
+            letter-spacing: 0.5px;
+            word-break: break-word;
+            overflow: visible;
+            text-overflow: clip;
+            white-space: normal;
+        }
+
+        .stage-card .data-value.large {
+            font-size: 9px;
+        }
+
+        .stage-card .parameter-placeholder {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            border: 2px dashed var(--neon-blue);
+            border-radius: 8px;
+            font-size: 14px;
+            text-shadow: 0 0 3px rgba(0, 240, 255, 0.3);
+            background-color: rgba(48, 63, 96, 0.2);
+            border-color: var(--accent-blue);
+            color: var(--accent-light);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .stage-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+        }
+
+        .stage-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--neon-blue);
+            box-shadow: 0 15px 30px rgba(100, 255, 218, 0.3);
+        }
+
+        .stage-card.active {
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.7), 0 0 40px rgba(153, 0, 255, 0.4);
+        }
+
+        /* 定义 slideIn 动画，实现元素从下往上滑动并渐显效果 */
+        @keyframes slideIn {
+            from { 
+                transform: translateY(10px); 
+                opacity: 0; 
+            }
+            to { 
+                transform: translateY(0); 
+                opacity: 1; 
+            }
+        }
+        .data-value.updating {
+            animation: slideIn 0.5s ease-out;
+        }
+
+        /* 报告生成按钮样式 */
+        #report-button-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        #generate-report-btn {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #generate-report-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 240, 255, 0.6);
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
+        }
+
+        #generate-report-btn:active {
+            transform: translateY(1px);
+        }
+
+        /* 报告模态框样式 */
+        .report-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 25, 47, 0.9);
+            z-index: 2000;
+            overflow: auto;
+        }
+
+        .report-content {
+            background-color: var(--primary-blue);
+            margin: 50px auto;
+            padding: 30px;
+            width: 80%;
+            max-width: 1000px;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+            border: 1px solid var(--neon-blue);
+            color: var(--text-primary);
+        }
+
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--neon-blue);
+        }
+
+        .report-title {
+            font-size: 24px;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        .close-report {
+            color: var(--text-secondary);
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-report:hover {
+            color: var(--neon-blue);
+        }
+
+        .report-body {
+            line-height: 1.6;
+        }
+
+        .report-section {
+            margin-bottom: 25px;
+        }
+
+        .report-section-title {
+            font-size: 18px;
+            color: var(--neon-blue);
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+        }
+
+        .report-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .report-table th, .report-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+        }
+
+        .report-table th {
+            background-color: var(--secondary-blue);
+            color: var(--neon-blue);
+        }
+
+        .report-table tr:hover {
+            background-color: rgba(0, 240, 255, 0.05);
+        }
+
+        .report-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .report-action-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .report-action-btn.print {
+            background-color: var(--neon-blue);
+            color: var(--primary-dark);
+        }
+
+        .report-action-btn.download {
+            background-color: var(--neon-purple);
+            color: white;
+        }
+
+        .report-action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 240, 255, 0.4);
+        }
+
+        /* 打印样式 */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            .report-modal, .report-modal * {
+                visibility: visible;
+            }
+            .report-modal {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: auto;
+                background-color: white;
+            }
+            .report-content {
+                width: 100%;
+                margin: 0;
+                padding: 20px;
+                box-shadow: none;
+                border: none;
+            }
+            .report-actions {
+                display: none;
+            }
+        }
+        
+        /* 媒体查询调整 */
+        @media (max-width: 1920px) {
+            .stage-title {
+                font-size: 13px;
+            }
+            .data-label {
+                font-size: 11px;
+            }
+            .data-value {
+                font-size: 13px;
+            }
+            .data-value.large {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 1400px) {
+            .stage-title {
+                font-size: 12px;
+            }
+            .data-label {
+                font-size: 10px;
+            }
+            .data-value {
+                font-size: 12px;
+            }
+            .data-value.large {
+                font-size: 13px;
+            }
+            
+            .maintenance-sidebar {
+                width: 250px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .production-grid {
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+            }
+            
+            .logo h1 {
+                font-size: 20px;
+            }
+            
+            .dashboard-title {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .production-grid {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(4, 1fr);
+            }
+            
+            .maintenance-sidebar {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .production-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(6, 1fr);
+            }
+            
+            .logo h1 {
+                font-size: 18px;
+            }
+            
+            .dashboard-title {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .production-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(12, 1fr);
+            }
+            
+            .logo {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .logo img {
+                height: 40px;
+                margin-bottom: 5px;
+            }
+            
+            .logo h1 {
+                font-size: 16px;
+            }
+            
+            .dashboard-title {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img id="company-logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjNjRmZmRhIiBkPSJNMjU2IDhDMTE5IDggOCAxMTkgOCAyNTZzMTExIDI0OCAyNDggMjQ4IDI0OC0xMTEgMjQ4LTI0OFMzOTMgOCAyNTYgOHptMCA0NDhjLTExMC41IDAtMjAwLTg5LjUtMjAwLTIwMFMxNDUuNSA1NiAyNTYgNTZzMjAwIDg5LjUgMjAwIDIwMC04OS41IDIwMC0yMDAgMjAwWm0xMDEuOC0yNjEuN2wtODQuOS02MS43Yy0zLjEtMi4yLTcuMi0yLjItMTAuMyAwbC04NC45IDYxLjdjLTMuOSAyLjgtNC4xIDguMi0uNCAxMS40bDI3LjkgMjRjMy4zIDIuOSA4LjQgMi44IDExLjctLjFsNDMuMi0zNy40YzIuNy0yLjQgNi42LTIuNCA5LjMgMGw0My4yIDM3LjRjMy4zIDMgOC40IDMgMTEuNy4xbDI3LjktMjRjMy43LTMuMiAzLjUtOC42LS40LTExLjZaTTI0OCAyOTZjLTQ5LjUgMC05MC00MC41LTkwLTkwczQwLjUtOTAgOTAtOTAgNDAuNSAxMC41IDEwMCA5MCA5MCA5MCA5MCA0MC41IDkwIDkwLTQwLjUgOTAtOTAgOTB6bTAtMTQ0Yy0yOS43IDAtNTQgMjQuMy01NCA1NHMyNC4zIDU0IDU0IDU0IDU0LTI0LjMgNTQtNTQtMjQuMy01NC01NC01NFoiLz48L3N2Zz4=" alt="公司Logo">
+                <h1>诸暨市鸿源电力机械有限公司</h1>
+            </div>
+            <div class="user-info">
+                <div id="current-time" style="font-family: 'Orbitron', sans-serif; letter-spacing: 1px; font-size: 14px;">2025/01/01 10:30:45</div>
+            </div>
+        </header>
+
+        <h2 class="dashboard-title">生产流程数字驾驶舱</h2>
+
+        <div class="main-content">
+            <div class="production-grid" id="production-grid">
+                <!-- 阶段1 -->
+                <div class="stage-card" data-stage="1">
+                    <div class="stage-header">
+                        <div class="stage-title">设备1</div>
+                        <div class="stage-number">1</div>
+                    </div>
+                    <div class="stage-content">
+                        <div class="data-item">
+                            <div class="data-label">当前员工类型</div>
+                            <div class="data-value large" id="stage1-job-type">工人</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">当前人员ID</div>
+                            <div class="data-value" id="stage1-worker-id">W001</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件名称</div>
+                            <div class="data-value" id="stage1-art-name">水导轴瓦</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件图号</div>
+                            <div class="data-value" id="stage1-art-number">U11</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">温度参数</div>
+                            <div class="data-value" id="stage1-temp">1200℃</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">压力/吨位</div>
+                            <div class="data-value" id="stage1-press">800吨液压机</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">成型尺寸</div>
+                            <div class="data-value" id="stage1-size">500mm±10mm</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 阶段2 -->
+                <div class="stage-card" data-stage="2">
+                    <div class="stage-header">
+                        <div class="stage-title">设备2</div>
+                        <div class="stage-number">2</div>
+                    </div>
+                    <div class="stage-content">
+                        <div class="data-item">
+                            <div class="data-label">当前员工类型</div>
+                            <div class="data-value large" id="stage2-job-type">工人</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">当前人员ID</div>
+                            <div class="data-value" id="stage2-worker-id">W002</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件名称</div>
+                            <div class="data-value" id="stage2-art-name">水导轴瓦</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件图号</div>
+                            <div class="data-value" id="stage2-art-number">U11</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">加工精度</div>
+                            <div class="data-value" id="stage2-precision">内径公差±0.05mm</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">探伤结果</div>
+                            <div class="data-value" id="stage2-inspection">无裂纹</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">设备状态</div>
+                            <div class="data-value" id="stage2-status">加工机床编号及探伤仪校准有效期</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">异常记录</div>
+                            <div class="data-value" id="stage2-exception">如有缺陷，需标注返工或报废处理</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 阶段3 -->
+                <div class="stage-card" data-stage="3">
+                    <div class="stage-header">
+                        <div class="stage-title">设备3</div>
+                        <div class="stage-number">3</div>
+                    </div>
+                    <div class="stage-content">
+                        <div class="data-item">
+                            <div class="data-label">当前员工类型</div>
+                            <div class="data-value large" id="stage3-job-type">工人</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">当前人员ID</div>
+                            <div class="data-value" id="stage3-worker-id">W003</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件名称</div>
+                            <div class="data-value" id="stage3-art-name">水导轴瓦</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件图号</div>
+                            <div class="data-value" id="stage3-art-number">U11</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">热处理曲线</div>
+                            <div class="data-value" id="stage3-heating">300℃保温4小时</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">氢含量检测</div>
+                            <div class="data-value" id="stage3-h2">去氢后残余氢浓度≤2ppm</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">炉温均匀性</div>
+                            <div class="data-value" id="stage3-temp-uniformity">热处理炉内温度最大范围为5℃</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工艺标准</div>
+                            <div class="data-value" id="stage3-process-standard">GB/T 16923</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 阶段4 -->
+                <div class="stage-card" data-stage="4">
+                    <div class="stage-header">
+                        <div class="stage-title">瓦坯车加工、钻起吊孔</div>
+                        <div class="stage-number">4</div>
+                    </div>
+                    <div class="stage-content">
+                        <div class="data-item">
+                            <div class="data-label">当前人员类型</div>
+                            <div class="data-value" id="stage4-job-type">工人</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">当前人员ID</div>
+                            <div class="data-value" id="stage4-job-id">W004</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件名称</div>
+                            <div class="data-value" id="stage4-art-name">水导轴瓦</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件图号</div>
+                            <div class="data-value" id="stage4-art-number">U11</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件尺寸</div>
+                            <div class="data-value" id="stage4-art-size">20mm*20mm</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">开工时间</div>
+                            <div class="data-value" id="stage4-start">2025年7月25日 9:00</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">自检结果</div>
+                            <div class="data-value" id="stage4-self-check">无特殊状况</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 阶段5 -->
+                <div class="stage-card" data-stage="5">
+                    <div class="stage-header">
+                        <div class="stage-title">浇铸合金、保温</div>
+                        <div class="stage-number">5</div>
+                    </div>
+                    <div class="stage-content">
+                        <div class="data-item">
+                            <div class="data-label">当前人员类型</div>
+                            <div class="data-value large" id="stage5-job-type">工人</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">当前人员ID</div>
+                            <div class="data-value" id="stage5-job-id">W005</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件名称</div>
+                            <div class="data-value" id="stage5-art-name">水导轴瓦</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件图号</div>
+                            <div class="data-value" id="stage5-art-number">U11</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件尺寸</div>
+                            <div class="data-value" id="stage5-art-size">30mm*30mm</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">开工时间</div>
+                            <div class="data-value" id="stage5-start">2025年7月26日 12:00</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">加工类型</div>
+                            <div class="data-value" id="stage5-process-type">自动浇铸系统</div>
+                        </div><div class="data-item">
+                            <div class="data-label">自检结果</div>
+                            <div class="data-value" id="stage5-self-check-result">无特殊状况</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 阶段6 -->
+                <div class="stage-card" data-stage="6">
+                    <div class="stage-header">
+                        <div class="stage-title">轴瓦合金浇铸后粗加工</div>
+                        <div class="stage-number">6</div>
+                    </div>
+                    <div class="stage-content">
+                        <div class="data-item">
+                            <div class="data-label">当前人员类型</div>
+                            <div class="data-value large">{{ stage6['job_type'] }}</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">当前人员ID</div>
+                            <div class="data-value large">{{ stage6['employee_id'] }}</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件名称</div>
+                            <div class="data-value large">{{ stage6.workpiece_name }}</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件图号</div>
+                            <div class="data-value large">{{ stage6.workpiece_dn }}</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件尺寸</div>
+                            <div class="data-value large">{{ stage6.workpiece_size }}</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">开工时间</div>
+                            <div class="data-value large">{{ stage6.start_time }}</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">加工类型</div>
+                            <div class="data-value large">{{ stage6.process_type }}</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">自检结果</div>
+                            <div class="data-value large">{{ stage6.self_check_result }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 阶段7 -->
+                <div class="stage-card" data-stage="7">
+                    <div class="stage-header">
+                        <div class="stage-title">轴瓦合金浇铸后UT自检</div>
+                        <div class="stage-number">7</div>
+                    </div>
+                    <div class="stage-content">
+                       <div class="data-item">
+                            <div class="data-label">当前人员类型</div>
+                            <div class="data-value large">{{ stage7.job_type }}</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">当前人员ID</div>
+                            <div class="data-value large">{{ stage7.employee_id }}</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件名称</div>
+                            <div class="data-value large">{{ stage7.workpiece_name }}</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件图号</div>
+                            <div class="data-value large">{{ stage7.workpiece_dn }}</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件尺寸</div>
+                            <div class="data-value large">{{ stage7.workpiece_size }}</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">检验结果</div>
+                            <div class="data-value large">{{ stage7.inspection_passed }}</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">检验情况</div>
+                            <div class="data-value large">{{ stage7.inspection_details }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 阶段8 -->
+                <div class="stage-card" data-stage="8">
+                    <div class="stage-header">
+                        <div class="stage-title">轴瓦瓦环半精加工</div>
+                        <div class="stage-number">8</div>
+                    </div>
+                    <div class="stage-content">
+                        <div class="data-item">
+                            <div class="data-label">当前人员类型</div>
+                            <div class="data-value large" id="stage8-job-type">工人</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">当前人员ID</div>
+                            <div class="data-value" id="stage8-employee-id">W008</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件名称</div>
+                            <div class="data-value" id="stage8-workpiece-name">水导轴瓦</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件图号</div>
+                            <div class="data-value" id="stage8-workpiece-dn">U11</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件尺寸</div>
+                            <div class="data-value" id="stage8-workpiece-size">30mm*30mm</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">开工时间</div>
+                            <div class="data-value" id="stage8-start-time">2025年7月26日 9:00</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">加工类型</div>
+                            <div class="data-value" id="stage8-process-type">数控精加工</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">自检结果</div>
+                            <div class="data-value" id="stage8-self-check-result">无特殊状况</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 阶段9 -->
+                <div class="stage-card" data-stage="9">
+                    <div class="stage-header">
+                        <div class="stage-title">轴瓦精加工</div>
+                        <div class="stage-number">9</div>
+                    </div>
+                    <div class="stage-content">
+                        <div class="data-item">
+                            <div class="data-label">当前人员类型</div>
+                            <div class="data-value large" id="stage9-job-type">工人</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">当前人员ID</div>
+                            <div class="data-value" id="stage9-employee-id">W009</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件名称</div>
+                            <div class="data-value" id="stage9-workpiece-name">水导轴瓦</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件图号</div>
+                            <div class="data-value" id="stage9-workpiece-dn">U11</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件尺寸</div>
+                            <div class="data-value" id="stage9-workpiece-size">25mm×25mm</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">开工时间</div>
+                            <div class="data-value" id="stage9-start-time">2025年7月28日 9:00</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">加工类型</div>
+                            <div class="data-value" id="stage9-process-type">精密磨削</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">自检结果</div>
+                            <div class="data-value" id="stage9-self-check-result"无特殊状况></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 阶段10 -->
+                <div class="stage-card" data-stage="10">
+                    <div class="stage-header">
+                        <div class="stage-title">清理检查及完工文件</div>
+                        <div class="stage-number">10</div>
+                    </div>
+                    <div class="stage-content">
+                        <div class="data-item">
+                            <div class="data-label">当前人员类型</div>
+                            <div class="data-value" id="stage10-job-type">质检员</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">当前人员ID</div>
+                            <div class="data-value" id="stage10-employee-id">Q010</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件名称</div>
+                            <div class="data-value" id="stage10-workpiece-name">水导轴瓦</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">工件图号</div>
+                            <div class="data-value" id="stage10-workpiece-dn">U11</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">开工时间</div>
+                            <div class="data-value" id="stage10-start-time">2025年7月29日 12:00</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">检验结果</div>
+                            <div class="data-value" id="stage10-check-result">检验合格</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-label">检验情况</div>
+                            <div class="data-value" id="stage10-check-time">无特殊情况</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 阶段11 -->
+                <div class="stage-card" data-stage="11">
+                    <div class="stage-header">
+                        <div class="stage-title">VHS见证检查</div>
+                        <div class="stage-number">11</div>
+                    </div>
+                    <div class="stage-content">
+                        <div class="parameter-placeholder">
+                            见证检查流程<br>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 阶段12 -->
+                <div class="stage-card" data-stage="12">
+                    <div class="stage-header">
+                        <div class="stage-title">轴瓦包装、发运</div>
+                        <div class="stage-number">12</div>
+                    </div>
+                    <div class="stage-content">
+                        <div class="parameter-placeholder">
+                            包装发运流程<br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 新增的维护方案侧边栏 -->
+            <div class="maintenance-sidebar">
+                <div class="maintenance-header">
+                    <h3 class="maintenance-title">产品检修与设备维护方案</h3>
+                    <p class="maintenance-subtitle">各阶段维护计划与重点</p>
+                </div>
+                <div class="maintenance-list">
+                    <div class="maintenance-item">
+                        <div class="maintenance-stage">
+                            <span class="stage-name">设备1</span>
+                            <span class="stage-number">1</span>
+                        </div>
+                        <div class="maintenance-plan">
+                            <span class="product-check">考虑增加产品检修频率，重点关注设备运行情况</span>
+                        </div>
+                    </div>
+                    <div class="maintenance-item">
+                        <div class="maintenance-stage">
+                            <span class="stage-name">设备2</span>
+                            <span class="stage-number">2</span>
+                        </div>
+                        <div class="maintenance-plan">
+                            <span class="product-check">考虑增加产品检修频率，定期检修生产设备</span>
+                        </div>
+                    </div>
+                    <div class="maintenance-item">
+                        <div class="maintenance-stage">
+                            <span class="stage-name">设备3</span>
+                            <span class="stage-number">3</span>
+                        </div>
+                        <div class="maintenance-plan">
+                            <span class="equipment-check">重点关注设备运行情况，定期检修生产设备</span>
+                        </div>
+                    </div>
+                    <div class="maintenance-item">
+                        <div class="maintenance-stage">
+                            <span class="stage-name">瓦坯车加工、钻起吊孔</span>
+                            <span class="stage-number">4</span>
+                        </div>
+                        <div class="maintenance-plan">
+                            <span class="equipment-check">重点关注设备运行情况，保持产品检修频率不变</span>
+                        </div>
+                    </div>
+                    <div class="maintenance-item">
+                        <div class="maintenance-stage">
+                            <span class="stage-name">浇铸合金、保温</span>
+                            <span class="stage-number">5</span>
+                        </div>
+                        <div class="maintenance-plan">
+                            <span class="equipment-check">重点关注设备运行情况，定期检修生产设备</span>
+                        </div>
+                    </div>
+                    <div class="maintenance-item">
+                        <div class="maintenance-stage">
+                            <span class="stage-name">轴瓦合金浇铸后粗加工</span>
+                            <span class="stage-number">6</span>
+                        </div>
+                        <div class="maintenance-plan">
+                            <span class="equipment-check">重点关注设备运行情况，定期检修生产设备</span>
+                        </div>
+                    </div>
+                    <div class="maintenance-item">
+                        <div class="maintenance-stage">
+                            <span class="stage-name">轴瓦合金浇铸后UT自检</span>
+                            <span class="stage-number">7</span>
+                        </div>
+                        <div class="maintenance-plan">
+                            <span class="product-check">考虑增加产品检修频率，定期检修生产设备</span>
+                        </div>
+                    </div>
+                    <div class="maintenance-item">
+                        <div class="maintenance-stage">
+                            <span class="stage-name">轴瓦瓦环半精加工</span>
+                            <span class="stage-number">8</span>
+                        </div>
+                        <div class="maintenance-plan">
+                            <span class="equipment-check">重点关注设备运行情况，定期检修生产设备</span>
+                        </div>
+                    </div>
+                    <div class="maintenance-item">
+                        <div class="maintenance-stage">
+                            <span class="stage-name">轴瓦精加工</span>
+                            <span class="stage-number">9</span>
+                        </div>
+                        <div class="maintenance-plan">
+                            <span class="product-check">考虑增加产品检修频率，定期检修生产设备</span>
+                        </div>
+                    </div>
+                    <div class="maintenance-item">
+                        <div class="maintenance-stage">
+                            <span class="stage-name">清理检查及完工文件</span>
+                            <span class="stage-number">10</span>
+                        </div>
+                        <div class="maintenance-plan">
+                            <span class="equipment-check">重点关注设备运行情况，定期检修生产设备</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 更新时间显示
+        function updateTime() {
+            const now = new Date();
+            const timeStr = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, '0')}/${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+            document.getElementById('current-time').textContent = timeStr;
+        }
+        
+        // 获取阶段数据
+        function fetchLatestData(stage, jobType) {
+            fetch(`/api/latest-data/${jobType}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        const stageContent = document.getElementById(`stage${stage}-content`);
+                        if (jobType === '工人') {
+                            stageContent.innerHTML = `
+                                <div class="data-item">
+                                    <div class="data-label">当前人员类型</div>
+                                    <div class="data-value large">${data.data.job_type || '未提及'}</div>
+                                </div>
+                                <div class="data-item">
+                                    <div class="data-label">当前人员ID</div>
+                                    <div class="data-value large">${data.data.employee_id || '未提及'}</div>
+                                </div>
+                                <div class="data-item">
+                                    <div class="data-label">工件名称</div>
+                                    <div class="data-value large">${data.data.workpiece_name || '未提及'}</div>
+                                </div>
+                                <div class="data-item">
+                                    <div class="data-label">工件图号</div>
+                                    <div class="data-value large">${data.data.workpiece_dn || '未提及'}</div>
+                                </div>
+                                <div class="data-item">
+                                    <div class="data-label">工件尺寸</div>
+                                    <div class="data-value large">${data.data.workpiece_size || '未提及'}</div>
+                                </div>
+                                <div class="data-item">
+                                    <div class="data-label">开工时间</div>
+                                    <div class="data-value large">${data.data.start_time || '未提及'}</div>
+                                </div>
+                                <div class="data-item">
+                                    <div class="data-label">加工类型</div>
+                                    <div class="data-value large">${data.data.process_type || '未提及'}</div>
+                                </div>
+                                <div class="data-item">
+                                    <div class="data-label">自检结果</div>
+                                    <div class="data-value large">${data.data.self_check_result || '未提及'}</div>
+                                </div>
+                            `;
+                        } else {
+                            stageContent.innerHTML = `
+                                <div class="data-item">
+                                    <div class="data-label">当前人员类型</div>
+                                    <div class="data-value large">${data.data.job_type || '未提及'}</div>
+                                </div>
+                                <div class="data-item">
+                                    <div class="data-label">当前人员ID</div>
+                                    <div class="data-value large">${data.data.employee_id || '未提及'}</div>
+                                </div>
+                                <div class="data-item">
+                                    <div class="data-label">工件名称</div>
+                                    <div class="data-value large">${data.data.workpiece_name || '未提及'}</div>
+                                </div>
+                                <div class="data-item">
+                                    <div class="data-label">工件图号</div>
+                                    <div class="data-value large">${data.data.workpiece_dn || '未提及'}</div>
+                                </div>
+                                <div class="data-item">
+                                    <div class="data-label">工件尺寸</div>
+                                    <div class="data-value large">${data.data.workpiece_size || '未提及'}</div>
+                                </div>
+                                <div class="data-item">
+                                    <div class="data-label">检验结果</div>
+                                    <div class="data-value large">${data.data.inspection_passed !== null ? (data.data.inspection_passed ? '是' : '否') : '未提及'}</div>
+                                </div>
+                                <div class="data-item">
+                                    <div class="data-label">检验情况</div>
+                                    <div class="data-value large">${data.data.inspection_details || '未提及'}</div>
+                                </div>
+                            `;
+                        }
+                    } else {
+                        console.error(data.message);
+                    }
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+        
+        setInterval(updateTime, 1000);
+        updateTime();
+        
+        // 卡片点击效果
+        document.querySelectorAll('.stage-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.stage-card').forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // 维护项点击效果
+        document.querySelectorAll('.maintenance-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const stageNum = this.querySelector('.stage-number').textContent;
+                document.querySelectorAll('.stage-card').forEach(c => c.classList.remove('active'));
+                document.querySelector(`.stage-card[data-stage="${stageNum}"]`).classList.add('active');
+            });
+        });
+
+        // 更新时间显示
+        function updateTime() {
+            const now = new Date();
+            const timeStr = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, '0')}/${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+            document.getElementById('current-time').textContent = timeStr;
+        }
+        
+        setInterval(updateTime, 1000);
+        updateTime();
+        
+        // 卡片点击效果
+        document.querySelectorAll('.stage-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.stage-card').forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // 维护项点击效果
+        document.querySelectorAll('.maintenance-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const stageNum = this.querySelector('.stage-number').textContent;
+                document.querySelectorAll('.stage-card').forEach(c => c.classList.remove('active'));
+                document.querySelector(`.stage-card[data-stage="${stageNum}"]`).classList.add('active');
+            });
+        });
+        
+        // 随机滚动数据函数
+        function getRandomValue(stage, field) {
+            const values = {
+                'stage1': {
+                    'job-type': ['工人', '技术员', '工程师'],
+                    'worker-id': ['W001', 'W002', 'W003', 'W004', 'W005'],
+                    'art-name': ['水导轴瓦', '推力轴瓦', '导叶轴瓦'],
+                    'art-number': ['U11', 'U12', 'U13', 'U14'],
+                    'temp': ['1200℃', '1180℃', '1220℃', '1190℃'],
+                    'press': ['800吨液压机', '1000吨液压机', '630吨液压机'],
+                    'size': ['500mm±10mm', '480mm±10mm', '520mm±10mm']
+                },
+                'stage2': {
+                    'job-type': ['工人', '质检员', '技术员'],
+                    'worker-id': ['W002', 'W006', 'W007', 'W008'],
+                    'art-name': ['水导轴瓦', '推力轴瓦'],
+                    'art-number': ['U11', 'U12', 'U21', 'U22'],
+                    'precision': ['内径公差±0.05mm', '外径公差±0.03mm', '长度公差±0.1mm'],
+                    'inspection': ['无裂纹', '合格', '通过'],
+                    'status': ['加工机床编号及探伤仪校准有效期', '设备运行正常'],
+                    'exception': ['无特殊状况', '如有缺陷，需标注返工或报废处理', '无缺陷']
+                },
+                'stage3': {
+                    'job-type': ['工人', '热处理工程师'],
+                    'worker-id': ['W003', 'W009', 'W010'],
+                    'art-name': ['水导轴瓦', '推力轴瓦', '导叶轴瓦'],
+                    'art-number': ['U11', 'U21', 'U31'],
+                    'heating': ['300℃保温4小时', '350℃保温3小时', '400℃保温2小时'],
+                    'h2': ['去氢后残余氢浓度≤2ppm', '氢浓度≤1.5ppm'],
+                    'temp-uniformity': ['热处理炉内温度最大范围为5℃', '温度均匀性±3℃'],
+                    'process-standard': ['GB/T 16923', 'JB/T 6322', 'DL/T 677']
+                },
+                'stage4': {
+                    'job-type': ['工人', '车床操作员'],
+                    'job-id': ['W004', 'W011', 'W012'],
+                    'art-name': ['水导轴瓦', '推力轴瓦'],
+                    'art-number': ['U11', 'U21'],
+                    'art-size': ['20mm*20mm', '25mm*25mm', '30mm*30mm'],
+                    'start': ['2025年7月25日 9:00', '2025年7月26日 10:00', '2025年7月27日 8:30'],
+                    'self-check': ['无特殊状况', '运行正常', '符合标准']
+                },
+                'stage5': {
+                    'job-type': ['工人', '铸造工程师'],
+                    'job-id': ['W005', 'W013', 'W014'],
+                    'art-name': ['水导轴瓦', '推力轴瓦'],
+                    'art-number': ['U11', 'U21'],
+                    'art-size': ['30mm*30mm', '35mm*35mm', '40mm*40mm'],
+                    'start': ['2025年7月26日 12:00', '2025年7月27日 14:00'],
+                    'process-type': ['自动浇铸系统', '半自动浇铸', '手工浇铸'],
+                    'self-check-result': ['无特殊状况', '质量合格', '符合要求']
+                },
+                'stage8': {
+                    'job-type': ['工人', '精加工工程师'],
+                    'employee-id': ['W008', 'W015', 'W016'],
+                    'workpiece-name': ['水导轴瓦', '推力轴瓦'],
+                    'workpiece-dn': ['U11', 'U21', 'U31'],
+                    'workpiece-size': ['30mm*30mm', '35mm*35mm', '40mm*40mm'],
+                    'start-time': ['2025年7月26日 9:00', '2025年7月27日 10:00'],
+                    'process-type': ['数控精加工', 'CNC加工', '精密车削'],
+                    'self-check-result': ['无特殊状况', '尺寸合格', '表面光洁度达标']
+                },
+                'stage9': {
+                    'job-type': ['工人', '精密工程师'],
+                    'employee-id': ['W009', 'W017', 'W018'],
+                    'workpiece-name': ['水导轴瓦', '推力轴瓦'],
+                    'workpiece-dn': ['U11', 'U21'],
+                    'workpiece-size': ['25mm×25mm', '30mm×30mm', '35mm×35mm'],
+                    'start-time': ['2025年7月28日 9:00', '2025年7月29日 8:00'],
+                    'process-type': ['精密磨削', '超精加工', '镜面磨削'],
+                    'self-check-result': ['无特殊状况', '精度达标', '符合图纸要求']
+                },
+                'stage10': {
+                    'job-type': ['质检员', '质量工程师'],
+                    'employee-id': ['Q010', 'Q011', 'Q012'],
+                    'workpiece-name': ['水导轴瓦', '推力轴瓦'],
+                    'workpiece-dn': ['U11', 'U21'],
+                    'start-time': ['2025年7月29日 12:00', '2025年7月30日 10:00'],
+                    'check-result': ['检验合格', '质量达标', '通过验收'],
+                    'check-time': ['无特殊情况', '检验正常', '符合标准']
+                }
+            };
+            
+            if (values[stage] && values[stage][field]) {
+                const options = values[stage][field];
+                return options[Math.floor(Math.random() * options.length)];
+            }
+            return '';
+        }
+        
+        // 实现随机滚动效果
+        function startRandomRolling() {
+            // 定义需要随机滚动的阶段和字段
+            const stagesToRoll = [
+                {stage: 'stage1', fields: ['job-type', 'worker-id', 'art-name', 'art-number', 'temp', 'press', 'size']},
+                {stage: 'stage2', fields: ['job-type', 'worker-id', 'art-name', 'art-number', 'precision', 'inspection', 'status', 'exception']},
+                {stage: 'stage3', fields: ['job-type', 'worker-id', 'art-name', 'art-number', 'heating', 'h2', 'temp-uniformity', 'process-standard']},
+                {stage: 'stage4', fields: ['job-type', 'job-id', 'art-name', 'art-number', 'art-size', 'start', 'self-check']},
+                {stage: 'stage5', fields: ['job-type', 'job-id', 'art-name', 'art-number', 'art-size', 'start', 'process-type', 'self-check-result']},
+                {stage: 'stage8', fields: ['job-type', 'employee-id', 'workpiece-name', 'workpiece-dn', 'workpiece-size', 'start-time', 'process-type', 'self-check-result']},
+                {stage: 'stage9', fields: ['job-type', 'employee-id', 'workpiece-name', 'workpiece-dn', 'workpiece-size', 'start-time', 'process-type', 'self-check-result']},
+                {stage: 'stage10', fields: ['job-type', 'employee-id', 'workpiece-name', 'workpiece-dn', 'start-time', 'check-result', 'check-time']}
+            ];
+            
+            // 为每个阶段和字段设置定时器，定期更新值
+            stagesToRoll.forEach(item => {
+                const stage = item.stage;
+                item.fields.forEach(field => {
+                    setInterval(() => {
+                        const element = document.getElementById(`${stage}-${field}`);
+                        if (element) {
+                            const newValue = getRandomValue(stage, field);
+                            if (newValue) {
+                                element.textContent = newValue;
+                                element.classList.add('updating');
+                                setTimeout(() => {
+                                    element.classList.remove('updating');
+                                }, 500);
+                            }
+                        }
+                    }, 3000 + Math.random() * 1000); // 每1秒更新一次
+                });
+            });
+        }
+        
+        // 页面加载完成后启动随机滚动并获取阶段6和7的数据
+        document.addEventListener('DOMContentLoaded', function() {
+            startRandomRolling();
+            
+            // 获取阶段6和阶段7的初始数据
+            fetchLatestData(6, '工人');
+            fetchLatestData(7, '质检员');
+            
+            // 定期更新阶段6和阶段7的数据
+            setInterval(() => {
+                fetchLatestData(6, '工人');
+                fetchLatestData(7, '质检员');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>

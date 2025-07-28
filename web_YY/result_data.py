@@ -1,0 +1,1 @@
+result = '```json\n{\n  "Workpiece_name": "未提及",\n  "Workpiece_DN": "未提及",\n  "Workpiece_size": "未提及",\n  "Start_time": "未提及",\n  "Process_type": "未提及",\n  "Self_check_result": "未提及"\n}\n```'

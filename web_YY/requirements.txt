@@ -1,0 +1,13 @@
+# 现有依赖
+numpy
+websocket-client
+pyaudio
+opencv-python
+requests
+openai
+
+# 新增MySQL数据库连接依赖
+mysql-connector-python
+
+# GUI界面依赖
+PyQt5
