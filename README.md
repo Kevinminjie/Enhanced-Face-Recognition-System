@@ -193,8 +193,8 @@ SCALES = [0.5, 0.75, 1.0, 1.1, 1.25]  # 检测尺度
 
 ## 📞 联系方式
 
-- **项目维护者**: [Your Name]
-- **邮箱**: your.email@example.com
+- **项目维护者**: [minjie wang]
+- **邮箱**: minjiewang232@gmail.com
 - **项目链接**: https://github.com/yourusername/FaceRecognition
 
 ## 🙏 致谢
