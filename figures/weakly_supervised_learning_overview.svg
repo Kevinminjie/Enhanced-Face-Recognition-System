@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1400" viewBox="0 0 2400 1400">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f7faff"/>
+      <stop offset="100%" stop-color="#edf2ff"/>
+    </linearGradient>
+    <radialGradient id="vignette" cx="50%" cy="40%" r="75%">
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.08"/>
+    </radialGradient>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="160%" height="160%" filterUnits="objectBoundingBox">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12"/>
+      <feOffset dx="0" dy="16" result="offsetblur"/>
+      <feMerge>
+        <feMergeNode in="offsetblur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="14" markerHeight="14" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#354369"/>
+    </marker>
+    <linearGradient id="grad-9f6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7b9bff"/>
+      <stop offset="100%" stop-color="#5b6cea"/>
+    </linearGradient>
+    <linearGradient id="grad-74aa" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#39d98a"/>
+      <stop offset="100%" stop-color="#1aa66b"/>
+    </linearGradient>
+    <linearGradient id="grad-308a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b08dff"/>
+      <stop offset="100%" stop-color="#8052ff"/>
+    </linearGradient>
+    <linearGradient id="grad-5902" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffa94d"/>
+      <stop offset="100%" stop-color="#ff7a1f"/>
+    </linearGradient>
+    <linearGradient id="grad-fc52" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d7fbe8"/>
+      <stop offset="100%" stop-color="#9cebd1"/>
+    </linearGradient>
+    <linearGradient id="grad-af1e" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d7fbe8"/>
+      <stop offset="100%" stop-color="#9cebd1"/>
+    </linearGradient>
+    <linearGradient id="grad-8d7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ede2ff"/>
+      <stop offset="100%" stop-color="#c5b5ff"/>
+    </linearGradient>
+    <linearGradient id="grad-5186" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ede2ff"/>
+      <stop offset="100%" stop-color="#c5b5ff"/>
+    </linearGradient>
+    <linearGradient id="grad-616d" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe6d0"/>
+      <stop offset="100%" stop-color="#ffbf80"/>
+    </linearGradient>
+    <linearGradient id="grad-d895" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe6d0"/>
+      <stop offset="100%" stop-color="#ffbf80"/>
+    </linearGradient>
+    <linearGradient id="grad-adc3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe6d0"/>
+      <stop offset="100%" stop-color="#ffbf80"/>
+    </linearGradient>
+    <linearGradient id="grad-a35" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0fdf4"/>
+      <stop offset="100%" stop-color="#d1fae5"/>
+    </linearGradient>
+    <linearGradient id="grad-afec" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0fdf4"/>
+      <stop offset="100%" stop-color="#d1fae5"/>
+    </linearGradient>
+    <linearGradient id="grad-cec" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0fdf4"/>
+      <stop offset="100%" stop-color="#d1fae5"/>
+    </linearGradient>
+    <linearGradient id="grad-d707" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0fdf4"/>
+      <stop offset="100%" stop-color="#d1fae5"/>
+    </linearGradient>
+    <linearGradient id="grad-3e32" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0fdf4"/>
+      <stop offset="100%" stop-color="#d1fae5"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="2400" height="1400" fill="url(#bg-gradient)"/>
+  <rect x="0" y="0" width="2400" height="1400" fill="url(#vignette)"/>
+  <text x="1200.0" y="110" fill="#1f2a44" font-size="64" font-weight="700" font-family="&quot;Source Han Sans&quot;,&quot;PingFang SC&quot;,&quot;Noto Sans SC&quot;,sans-serif" text-anchor="middle">弱监督学习方法全景图</text>
+  <text x="1200.0" y="180" fill="#46506c" font-size="34" font-family="&quot;Source Han Sans&quot;,&quot;PingFang SC&quot;,&quot;Noto Sans SC&quot;,sans-serif" text-anchor="middle">分层结构、非重叠布局与折线箭头</text>
+  <g filter="url(#soft-shadow)">
+    <rect x="160" y="540.0" width="340" height="200" rx="30" ry="30" fill="url(#grad-9f6)" stroke="#1f2a44" stroke-width="3"/>
+    <text x="330.0" y="640.0" fill="#ffffff" font-size="40" font-family="&quot;Source Han Sans&quot;,&quot;PingFang SC&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="middle">弱监督学习</text>
+  </g>
+  <g filter="url(#soft-shadow)">
+    <rect x="600" y="180.0" width="360" height="170" rx="30" ry="30" fill="url(#grad-74aa)" stroke="#1f2a44" stroke-width="3"/>
+    <text x="780.0" y="265.0" fill="#ffffff" font-size="40" font-family="&quot;Source Han Sans&quot;,&quot;PingFang SC&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="middle">数据增广</text>
+  </g>
+  <g filter="url(#soft-shadow)">
+    <rect x="600" y="453.0" width="360" height="170" rx="30" ry="30" fill="url(#grad-308a)" stroke="#1f2a44" stroke-width="3"/>
+    <text x="780.0" y="538.0" fill="#ffffff" font-size="40" font-family="&quot;Source Han Sans&quot;,&quot;PingFang SC&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="middle">迁移学习</text>
+  </g>
+  <g filter="url(#soft-shadow)">
+    <rect x="600" y="726.0" width="360" height="170" rx="30" ry="30" fill="url(#grad-5902)" stroke="#1f2a44" stroke-width="3"/>
+    <text x="780.0" y="811.0" fill="#ffffff" font-size="40" font-family="&quot;Source Han Sans&quot;,&quot;PingFang SC&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="middle">交互式分割</text>
+  </g>
+  <g filter="url(#soft-shadow)">
+    <rect x="1100" y="139.0" width="380" height="150" rx="30" ry="30" fill="url(#grad-fc52)" stroke="#1f2a44" stroke-width="3"/>
+    <text x="1290.0" y="214.0" fill="#1a1c2d" font-size="40" font-family="&quot;Source Han Sans&quot;,&quot;PingFang SC&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="middle">传统增广</text>
+  </g>
+  <g filter="url(#soft-shadow)">
+    <rect x="1100" y="349.0" width="380" height="150" rx="30" ry="30" fill="url(#grad-af1e)" stroke="#1f2a44" stroke-width="3"/>
+    <text x="1290.0" y="424.0" fill="#1a1c2d" font-size="40" font-family="&quot;Source Han Sans&quot;,&quot;PingFang SC&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="middle">合成增广</text>
+  </g>
+  <g filter="url(#soft-shadow)">
+    <rect x="1100" y="643.0" width="380" height="150" rx="30" ry="30" fill="url(#grad-8d7)" stroke="#1f2a44" stroke-width="3"/>
+    <text x="1290.0" y="718.0" fill="#1a1c2d" font-size="40" font-family="&quot;Source Han Sans&quot;,&quot;PingFang SC&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="middle">预训练模型</text>
+  </g>
+  <g filter="url(#soft-shadow)">
+    <rect x="1100" y="853.0" width="380" height="150" rx="30" ry="30" fill="url(#grad-5186)" stroke="#1f2a44" stroke-width="3"/>
+    <text x="1290.0" y="928.0" fill="#1a1c2d" font-size="40" font-family="&quot;Source Han Sans&quot;,&quot;PingFang SC&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="middle">域适应</text>
+  </g>
+  <g filter="url(#soft-shadow)">
+    <rect x="1100" y="1084.0" width="380" height="150" rx="30" ry="30" fill="url(#grad-616d)" stroke="#1f2a44" stroke-width="3"/>
+    <text x="1290.0" y="1159.0" fill="#1a1c2d" font-size="40" font-family="&quot;Source Han Sans&quot;,&quot;PingFang SC&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="middle">DeepIGeos</text>
+  </g>
+  <g filter="url(#soft-shadow)">
+    <rect x="1100" y="1294.0" width="380" height="150" rx="30" ry="30" fill="url(#grad-d895)" stroke="#1f2a44" stroke-width="3"/>
+    <text x="1290.0" y="1369.0" fill="#1a1c2d" font-size="40" font-family="&quot;Source Han Sans&quot;,&quot;PingFang SC&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="middle">BIFSeg</text>
+  </g>
+  <g filter="url(#soft-shadow)">
+    <rect x="1100" y="1504.0" width="380" height="150" rx="30" ry="30" fill="url(#grad-adc3)" stroke="#1f2a44" stroke-width="3"/>
+    <text x="1290.0" y="1555.0" fill="#1a1c2d" font-size="40" font-family="&quot;Source Han Sans&quot;,&quot;PingFang SC&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="middle">GM Interac</text>
+    <text x="1290.0" y="1603.0" fill="#1a1c2d" font-size="40" font-family="&quot;Source Han Sans&quot;,&quot;PingFang SC&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="middle">ting</text>
+  </g>
+  <g filter="url(#soft-shadow)">
+    <rect x="1640" y="-130.0" width="420" height="140" rx="30" ry="30" fill="url(#grad-a35)" stroke="#1f2a44" stroke-width="3"/>
+    <text x="1850.0" y="-60.0" fill="#1a1c2d" font-size="40" font-family="&quot;Source Han Sans&quot;,&quot;PingFang SC&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="middle">改变图像噪声</text>
+  </g>
+  <g filter="url(#soft-shadow)">
+    <rect x="1640" y="59.0" width="420" height="140" rx="30" ry="30" fill="url(#grad-afec)" stroke="#1f2a44" stroke-width="3"/>
+    <text x="1850.0" y="129.0" fill="#1a1c2d" font-size="40" font-family="&quot;Source Han Sans&quot;,&quot;PingFang SC&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="middle">弹性形变</text>
+  </g>
+  <g filter="url(#soft-shadow)">
+    <rect x="1640" y="248.0" width="420" height="140" rx="30" ry="30" fill="url(#grad-cec)" stroke="#1f2a44" stroke-width="3"/>
+    <text x="1850.0" y="318.0" fill="#1a1c2d" font-size="40" font-family="&quot;Source Han Sans&quot;,&quot;PingFang SC&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="middle">颜色变换</text>
+  </g>
+  <g filter="url(#soft-shadow)">
+    <rect x="1640" y="437.0" width="420" height="140" rx="30" ry="30" fill="url(#grad-d707)" stroke="#1f2a44" stroke-width="3"/>
+    <text x="1850.0" y="507.0" fill="#1a1c2d" font-size="40" font-family="&quot;Source Han Sans&quot;,&quot;PingFang SC&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="middle">裁剪/翻转</text>
+  </g>
+  <g filter="url(#soft-shadow)">
+    <rect x="1640" y="752.0" width="420" height="140" rx="30" ry="30" fill="url(#grad-3e32)" stroke="#1f2a44" stroke-width="3"/>
+    <text x="1850.0" y="822.0" fill="#1a1c2d" font-size="40" font-family="&quot;Source Han Sans&quot;,&quot;PingFang SC&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="middle">条件GAN</text>
+  </g>
+  <path d="M 500 640.0 L 680 640.0 Q 690 640.0 690 650.0 L 690 255.0 Q 690 265.0 700 265.0 L 600 265.0" fill="none" stroke="#354369" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+  <path d="M 500 640.0 L 680 640.0 Q 690 640.0 690 650.0 L 690 528.0 Q 690 538.0 700 538.0 L 600 538.0" fill="none" stroke="#354369" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+  <path d="M 500 640.0 L 680 640.0 Q 690 640.0 690 650.0 L 690 801.0 Q 690 811.0 700 811.0 L 600 811.0" fill="none" stroke="#354369" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+  <path d="M 960 265.0 L 1080 265.0 Q 1090 265.0 1090 275.0 L 1090 204.0 Q 1090 214.0 1100 214.0 L 1100 214.0" fill="none" stroke="#354369" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+  <path d="M 960 265.0 L 1080 265.0 Q 1090 265.0 1090 275.0 L 1090 414.0 Q 1090 424.0 1100 424.0 L 1100 424.0" fill="none" stroke="#354369" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+  <path d="M 1480 214.0 L 1620 214.0 Q 1630 214.0 1630 224.0 L 1630 -70.0 Q 1630 -60.0 1640 -60.0 L 1640 -60.0" fill="none" stroke="#354369" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+  <path d="M 1480 214.0 L 1620 214.0 Q 1630 214.0 1630 224.0 L 1630 119.0 Q 1630 129.0 1640 129.0 L 1640 129.0" fill="none" stroke="#354369" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+  <path d="M 1480 214.0 L 1620 214.0 Q 1630 214.0 1630 224.0 L 1630 308.0 Q 1630 318.0 1640 318.0 L 1640 318.0" fill="none" stroke="#354369" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+  <path d="M 1480 214.0 L 1620 214.0 Q 1630 214.0 1630 224.0 L 1630 497.0 Q 1630 507.0 1640 507.0 L 1640 507.0" fill="none" stroke="#354369" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+  <path d="M 1480 424.0 L 1620 424.0 Q 1630 424.0 1630 434.0 L 1630 812.0 Q 1630 822.0 1640 822.0 L 1640 822.0" fill="none" stroke="#354369" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+  <path d="M 960 538.0 L 1080 538.0 Q 1090 538.0 1090 548.0 L 1090 708.0 Q 1090 718.0 1100 718.0 L 1100 718.0" fill="none" stroke="#354369" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+  <path d="M 960 538.0 L 1080 538.0 Q 1090 538.0 1090 548.0 L 1090 918.0 Q 1090 928.0 1100 928.0 L 1100 928.0" fill="none" stroke="#354369" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+  <path d="M 960 811.0 L 1080 811.0 Q 1090 811.0 1090 821.0 L 1090 1149.0 Q 1090 1159.0 1100 1159.0 L 1100 1159.0" fill="none" stroke="#354369" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+  <path d="M 960 811.0 L 1080 811.0 Q 1090 811.0 1090 821.0 L 1090 1359.0 Q 1090 1369.0 1100 1369.0 L 1100 1369.0" fill="none" stroke="#354369" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+  <path d="M 960 811.0 L 1080 811.0 Q 1090 811.0 1090 821.0 L 1090 1569.0 Q 1090 1579.0 1100 1579.0 L 1100 1579.0" fill="none" stroke="#354369" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</svg>
